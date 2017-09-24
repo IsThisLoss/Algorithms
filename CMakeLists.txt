@@ -3,8 +3,12 @@ project(Algorithms)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES main.cpp
-        DataStructures/PriorityQueue.h DataStructures/AVLTree.h DataStructures/Treap.h DataStructures/HashTable.h
-        Sorts/LSDByteSort.h Sorts/QuickSort.h Sorts/HeapSort.h  Sorts/MergeSort.h
-        InterestingTasks/arrays.h InterestingTasks/arrays.cpp InterestingTasks/FruitTask.h InterestingTasks/LinesTask.h)
-add_executable(Algorithms ${SOURCE_FILES})
+set(DataStructures DataStructures/AVLTree.h DataStructures/HashTable.h
+        DataStructures/PriorityQueue.h DataStructures/Treap.h)
+
+set(Sorts Sorts/HeapSort.h Sorts/MergeSort.h Sorts/QuickSort.h Sorts/LSDByteSort.h)
+
+set(Graphs Graphs/Graph.h Graphs/ConnectedComponents.h Graphs/DistancesFromVertex.h
+        Graphs/DijkstraSparse.h Graphs/FordBellman.h Graphs/TopologicalSort.h)
+
+add_executable(Algorithm main.cpp ${DataStructures} ${Sorts} ${Graphs})

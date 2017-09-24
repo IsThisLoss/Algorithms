@@ -5,47 +5,36 @@
 #ifndef ALGORITHM_TREAP_H
 #define ALGORITHM_TREAP_H
 
-#include <iostream>
 #include <vector>
 
 // TODO add remove method
 template <typename Key_type>
-class Treap
-{
+class Treap {
 private:
-    struct Node
-    {
+    struct Node {
         Key_type key;
         int priority;
         Node* left;
         Node* right;
     } *root;
 
-    void split(Node* currentNode, Key_type key, Node*& left, Node*& right)
-    {
-        if (!currentNode)
-        {
+    void split(Node* currentNode, Key_type key, Node*& left, Node*& right) {
+        if (!currentNode) {
             left = nullptr;
             right = nullptr;
-        }
-        else if (currentNode->key <= key)
-        {
+        } else if (currentNode->key <= key) {
             split(currentNode->right, key, currentNode->right, right);
             left = currentNode;
-        }
-        else
-        {
+        } else {
             split(currentNode->left, key, left, currentNode->left);
             right = currentNode;
         }
     }
 
-    Node* merge(Node* left, Node* right)
-    {
+    Node* merge(Node* left, Node* right) {
         if (!left || !right)
             return !left ? right : left;
-        if (left->priority > right->priority)
-        {
+        if (left->priority > right->priority) {
             left->right = merge(left->right, right);
             return left;
         }
@@ -56,16 +45,13 @@ private:
 
     void _insert(Node*& currentNode, Key_type key, int priority)
     {
-        if (!currentNode)
-        {
+        if (!currentNode) {
             currentNode = new Node;
             currentNode->key = key;
             currentNode->priority = priority;
             currentNode->left = nullptr;
             currentNode->right = nullptr;
-        }
-        else if (currentNode->priority < priority)
-        {
+        } else if (currentNode->priority < priority) {
             Node *left = nullptr, *right = nullptr;
 
             split(currentNode, key, left, right);
@@ -77,15 +63,13 @@ private:
             currentNode->left = left;
             currentNode->right = right;
 
-        }
-        else if (currentNode->key < key)
+        } else if (currentNode->key < key)
             _insert(currentNode->right, key, priority);
         else
             _insert(currentNode->left, key, priority);
     }
 
-    int _depth(Node* currentNode, int depth)
-    {
+    int _depth(Node* currentNode, int depth) {
         if (!currentNode)
             return depth;
         else
@@ -96,13 +80,11 @@ private:
 public:
     Treap() : root(nullptr) {}
 
-    void insert(Key_type key, int priority)
-    {
+    void insert(Key_type key, int priority) {
         _insert(root, key, priority);
     }
 
-    int depth()
-    {
+    int depth() {
         return _depth(root, 0);
     }
 };

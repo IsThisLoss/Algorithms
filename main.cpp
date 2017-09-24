@@ -1,7 +1,7 @@
 #include <iostream>
+#include "DataStructures/HashTable.h"
 
-int main()
-{
-
+int main() {
+    HashTable<int> table;
     return 0;
 }

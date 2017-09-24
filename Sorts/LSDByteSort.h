@@ -10,15 +10,13 @@
 
 #define MAX_BYTE 256
 
-template <typename Int_type>
-unsigned char getByte(const Int_type& x, const unsigned& n)
-{
+template <typename IntType>
+unsigned char getByte(const IntType& x, const unsigned& n) {
     return (unsigned char) ((x >> (8*n)) & 0xff);
 }
 
 template <typename Int_type>
-void countSort(Int_type* A, unsigned n, unsigned byte)
-{
+void countSort(Int_type* A, unsigned n, unsigned byte) {
     int C[MAX_BYTE];
     memset(C, 0x0, MAX_BYTE * sizeof(int));
     int64_t* B = new int64_t[n];
@@ -37,8 +35,7 @@ void countSort(Int_type* A, unsigned n, unsigned byte)
 }
 
 template <typename Int_type>
-void LSDByteSort(Int_type* A, unsigned n)
-{
+void LSDByteSort(Int_type* A, unsigned n) {
     for (unsigned i = 0; i < sizeof(Int_type); i++)
         countSort(A, n, i);
 }

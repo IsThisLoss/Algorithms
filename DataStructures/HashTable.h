@@ -6,110 +6,107 @@
 #define ALGORITHM_HASHTABLE_H
 
 #include <vector>
-#include <cstdlib>
-#include <stdexcept>
 
-// TODO add external hash() support, add iterators, make unordered_map
-template <typename Key_type>
-class HashTable
-{
+
+template <typename Key>
+struct Hasher {};
+
+template <>
+struct Hasher<std::string> {
+    size_t operator()(const std::string& string, size_t m) const {
+        size_t hash = 0;
+        for (auto& i : string)
+            hash = (hash * 7 + i) % m;
+        return hash;
+    }
+};
+
+template <>
+struct Hasher<int> {
+    size_t operator()(int id, size_t m) const {
+        return id % m;
+    }
+};
+
+
+// TODO add iterators, make unordered_map
+template <typename Key, class HasherFn = Hasher<Key> >
+class HashTable {
 private:
-    struct Node
-    {
-        enum State {empty, deleted, busy};
-        Key_type data;
-        State state;
+    struct Node {
+        Key data;
+        bool empty;
 
-        Node() : state(empty) {}
+        Node() : empty(true) {}
 
-        void set(const Key_type& string)
-        {
-            this->data = string;
-            this->state = busy;
-        }
-
-        inline bool isInsertable() const
-        {
-            return state == empty || state == deleted;
+        void set(const Key& key) {
+            this->data = key;
+            this->empty = false;
         }
     };
 
     std::vector<Node> table;
     size_t currentSize;
     const float rate = 3.0f/4.0f;
-public:
-    HashTable()
-    {
-        table.resize(8);
-        currentSize = 0;
-    }
+    HasherFn hasher;
 
-    void resize()
-    {
+    void resize() {
         std::vector<Node> tmp = table;
         table.resize(2*table.size());
         for (auto& i : table)
-            i.state = Node::empty;
+            i.empty = true;
 
-        for (auto& i : tmp)
-            if (i.state == Node::busy)
+        for (auto& i : tmp) // ???
+            if (i.empty == false)
                 insert(i.data);
     }
 
-    void insert(const Key_type& string)
-    {
-        size_t h = hash(string, table.size());
-        for (int i = 0; i < table.size(); i++)
-        {
-            if (table[h].isInsertable())
-            {
-                table[h].set(string);
+public:
+    HashTable() : table(8), currentSize(0) {}
+
+    bool insert(const Key& key) {
+        size_t hash = hasher(key, table.size());
+        for (int i = 0; i < table.size(); i++) {
+
+            if (table[hash].empty) {
+                table[hash].set(key);
                 break;
             }
-            else if (table[h].data == string)
-                throw std::runtime_error("Already exist");
-            h = (h + i + 1) % table.size();
+
+            if (table[hash].data == key)
+                return false;
+
+            hash = (hash + i + 1) % table.size();
         }
+
         currentSize++;
         float a = ((float) currentSize) / table.size();
         if (a >= rate)
             resize();
+        return true;
     }
 
-    bool find(const Key_type& string) const
-    {
-        size_t h = hash(string, table.size());
-        for (int i = 0; i < table.size(); i++)
-        {
-            if (table[h].state == Node::busy && table[h].data == string)
+    bool find(const Key& key) const {
+        size_t hash = hasher(key, table.size());
+        for (unsigned i = 0; i < table.size(); i++) {
+            if (table[hash].empty == false && table[hash].data == key)
                 return true;
-            h = (h + i + 1) % table.size();
+            hash = (hash + i + 1) % table.size();
         }
         return false;
     }
 
-    void remove(const Key_type& string)
-    {
-        size_t h = hash(string, table.size());
-        for (int i = 0; i < table.size(); i++)
-        {
-            if (table[h].state == Node::busy && table[h].data == string)
-            {
-                table[h].state = Node::deleted;
+    bool remove(const Key& key) {
+        size_t hash = hasher(key, table.size());
+        for (unsigned i = 0; i < table.size(); i++) {
+            if (table[hash].empty == false && table[hash].data == key) {
+                table[hash].empty = true;
                 currentSize--;
-                return;
+                return true;
             }
-            h = (h + i + 1) % table.size();
+            hash = (hash + i + 1) % table.size();
         }
-        throw std::runtime_error("No such key");
-    }
-
-    size_t hash(const std::string& string, size_t m) const
-    {
-        size_t hash = 0;
-        for (auto& i : string)
-            hash = (hash * 7 + i) % m;
-        return hash;
+        return false;
     }
 };
 
