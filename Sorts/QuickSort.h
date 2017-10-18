@@ -49,6 +49,7 @@ static void _q_srt(Iterator begin, Iterator end, size_t min_depth)
             }
         }
 
+        // tail recursion optimization
         if (std::distance(begin, j) < std::distance(i, end)) {
             _q_srt(begin, j, min_depth);
             begin = i;

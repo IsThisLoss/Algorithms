@@ -1,5 +1,5 @@
 //
-// Created by Dima on 23.03.2017.
+// Created by isthisloss on 23.03.2017.
 //
 
 #ifndef ALGORITHM_HEAPSORT_H

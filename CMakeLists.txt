@@ -11,4 +11,8 @@ set(Sorts Sorts/HeapSort.h Sorts/MergeSort.h Sorts/QuickSort.h Sorts/LSDByteSort
 set(Graphs Graphs/Graph.h Graphs/ConnectedComponents.h Graphs/DistancesFromVertex.h
         Graphs/DijkstraSparse.h Graphs/FordBellman.h Graphs/TopologicalSort.h)
 
-add_executable(Algorithm main.cpp ${DataStructures} ${Sorts} ${Graphs})
+# add_subdirectory(googletest)
+# include_directories(googletest/googletest/include)
+
+add_executable(Algorithm main.cpp ${DataStructures} ${Sorts} ${Graphs} KmpSearch.h)
+# target_link_libraries(Algorithm gtest gtest_main)
