@@ -10,31 +10,33 @@
 #include <iterator>
 
 template <typename Iterator>
-void insertionSort(Iterator begin, Iterator end)
-{
+void insertionSort(Iterator begin, Iterator end) {
     Iterator j;
     typename Iterator::value_type tmp;
-    for (auto i = begin + 1; i <= end; i++) {
+    for (auto i = std::next(begin); i <= end; i++) {
         tmp = *i;
-        for (j = i - 1; j >= begin && tmp < *j; j--)
+        for (j = std::prev(i); j >= begin && tmp < *j; j--)
             *(j+1) = *j;
         *(j+1) = tmp;
     }
 }
 
 template <typename Iterator>
-static void _q_srt(Iterator begin, Iterator end, size_t min_depth)
-{
-    if (std::distance(begin, end) < min_depth) {
-        insertionSort(begin, end);
-        return;
-    }
+static void quickSortBackend(Iterator begin, Iterator end, size_t minDepth) {
 
     while (begin < end) {
+        // small range will be sorted via insertion sort
+        if (std::distance(begin, end) < minDepth) {
+            insertionSort(begin, end);
+            return;
+        }
+
+        // Quick Sort
         Iterator i = begin, j = end;
+        // typename Iterator::value_type pivot = *(i + (rand() % std::distance(i, j))), tmp;
+        typename Iterator::value_type pivot = *(i + std::distance(i, j)/2), tmp;
 
-        typename Iterator::value_type pivot = *(i + (rand() % std::distance(i, j))), tmp;
-
+        // partition
         while (i <= j) {
             while (*i < pivot)
                 i++;
@@ -51,19 +53,65 @@ static void _q_srt(Iterator begin, Iterator end, size_t min_depth)
 
         // tail recursion optimization
         if (std::distance(begin, j) < std::distance(i, end)) {
-            _q_srt(begin, j, min_depth);
+            quickSortBackend(begin, j, minDepth);
             begin = i;
         } else {
-            _q_srt(i, end, min_depth);
+            quickSortBackend(i, end, minDepth);
             end = j;
         }
     }
 }
 
 template <typename Iterator>
-void quickSort(Iterator begin, Iterator end, size_t min_depth = 20) {
-    srand(time(nullptr));
-    _q_srt(begin, end-1, min_depth);
+static void threeWayQuickSortBackend(Iterator begin, Iterator end, size_t minDepth) {
+
+    while (begin < end) {
+        // sort smal range via insertion sort
+        if (std::distance(begin, end) < minDepth) {
+            insertionSort(begin, end);
+            return;
+        }
+
+        // Quick Sort
+        Iterator i = begin, j = begin, n = end;
+        // typename Iterator::value_type pivot = *(i + (rand() % std::distance(i, n))), tmp;
+        typename Iterator::value_type pivot = *(i + std::distance(i, n)/2);
+
+        //Three way partition
+        while (j <= n) {
+            if (*j < pivot) {
+                std::swap(*i, *j);
+                i++;
+                j++;
+            } else if (*j > pivot) {
+                std::swap(*j, *n);
+                n--;
+            } else {
+                j++;
+            }
+        }
+
+        // tail recursion optimization
+        if (std::distance(begin, i-1) < std::distance(n+1, end)) {
+            threeWayQuickSortBackend(begin, i - 1, minDepth);
+            begin = n+1;
+        } else {
+            threeWayQuickSortBackend(n + 1, end, minDepth);
+            end = i-1;
+        }
+    }
+}
+
+template <typename Iterator>
+void quickSort(Iterator begin, Iterator end, size_t minDepth = 20) {
+    //srand(time(nullptr));
+    quickSortBackend(begin, end - 1, minDepth);
+}
+
+template <typename Iterator>
+void threeWayQuickSort(Iterator begin, Iterator end, size_t minDepth = 20) {
+    //srand(time(nullptr));
+    threeWayQuickSortBackend(begin, end - 1, minDepth);
 }
 
 

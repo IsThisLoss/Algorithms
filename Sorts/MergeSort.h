@@ -7,12 +7,11 @@
 
 // @todo separate from class to functions
 template <class Container_t>
-class MergeSorter
-{
+class MergeSorter {
 private:
     using index_t = typename Container_t::size_type;
 
-    static inline Container_t min(index_t a, index_t b) {
+    static inline index_t min(index_t a, index_t b) {
         return a < b ? a : b;
     }
 
@@ -37,8 +36,8 @@ private:
         }
     }
 
-    MergeSorter() = delete;
 public:
+    MergeSorter() = delete;
     static void mergeSort(Container_t& array) {
         Container_t buff(array.size());
         _mergeSort(array, buff);
