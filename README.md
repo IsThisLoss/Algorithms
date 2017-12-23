@@ -37,6 +37,6 @@ Also There is [Ford-Bellman algorithm](https://github.com/IsThisLoss/Algorithms/
   * [Knuth–Morris–Pratt string searching algorithm](https://github.com/IsThisLoss/Algorithms/blob/master/StringUtils/KmpSearch.h)
   * [Split String by Separator](https://github.com/IsThisLoss/Algorithms/blob/master/StringUtils/StringSplit.h)
   
-## Others
+## 5. Others
   * [Base64 encoder and decoder](https://github.com/IsThisLoss/Algorithms/tree/master/Base64)
   * [Minimal String with Short String Optimization](https://github.com/IsThisLoss/Algorithms/tree/master/String)
