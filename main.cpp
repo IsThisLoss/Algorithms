@@ -1,6 +1,6 @@
 #include "Sorts/Test.h"
 
 int main() {
-    sortTest();
+    //  sortTest();
     return 0;
 }

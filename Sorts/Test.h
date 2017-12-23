@@ -16,6 +16,7 @@
 void sortTest() {
     // init
     constexpr unsigned N = 10000000;
+    std::cout << "Array size is " << N << " elements of int\n";
     std::vector<int> quickSortArray(N);
     srand(static_cast<unsigned>(time(nullptr)));
     std::generate(quickSortArray.begin(), quickSortArray.end(), rand);
@@ -41,7 +42,7 @@ void sortTest() {
 
     // Megre Sort
     t1 = std::chrono::high_resolution_clock::now();
-    MergeSorter<std::vector<int>>::mergeSort(mergeSortArray);
+    mergeSort(mergeSortArray);
     t2 = std::chrono::high_resolution_clock::now();
     std::cout << "Megre Sort took "
               << std::chrono::duration_cast<std::chrono::milliseconds>(t2-t1).count()
