@@ -13,10 +13,10 @@ set(Graphs Graphs/Graph.h Graphs/ConnectedComponents.h Graphs/DistancesFromVerte
 
 set(Base64 Base64/Base64.h Base64/Base64.cpp)
 set(String String/String.h String/String.cpp)
-set(Split Split/StringSplit.h)
+set(StringUtils StringUtils/KmpSearch.h StringUtils/StringSplit.h)
 
 # add_subdirectory(googletest)
 # include_directories(googletest/googletest/include)
 
-add_executable(Algorithm main.cpp ${DataStructures} ${Sorts} ${Graphs} KmpSearch.h Base64 String Split)
+add_executable(Algorithm main.cpp ${DataStructures} ${Sorts} ${Graphs} ${Base64} ${String} ${StringUtils})
 # target_link_libraries(Algorithm gtest gtest_main)
