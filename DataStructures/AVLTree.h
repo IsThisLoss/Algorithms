@@ -2,10 +2,9 @@
 // Created by Dima on 23.03.2017.
 //
 
-#ifndef ALGORITHM_AVLTREE_H
-#define ALGORITHM_AVLTREE_H
+#pragma once
 
-
+// TODO need tests
 template <typename Key>
 class AVLTree {
 private:
@@ -14,7 +13,7 @@ private:
         int height;
         Node *left, *right;
 
-        Node(Key key) {
+        explicit Node(const Key& key) {
             this->key = key;
             this->height = 1;
             this->left = this->right = nullptr;
@@ -37,7 +36,7 @@ private:
         return height(node->right) - height(node->left);
     }
 
-    Node* rightRatation(Node* a) {
+    Node* rightRotation(Node* a) {
         Node* b = a->left;
         a->left = b->right;
         b->right = a;
@@ -59,13 +58,13 @@ private:
         fixHeight(node);
         if (bfactor(node) == 2) {
             if (bfactor(node->right) < 0)
-                node->right = rightRatation(node->right);
+                node->right = rightRotation(node->right);
             return leftRotation(node);
         }
         if (bfactor(node) == -2) {
             if (bfactor(node->left) > 0)
                 node->left = leftRotation(node->left);
-            return rightRatation(node);
+            return rightRotation(node);
         }
         return node;
     }
@@ -114,11 +113,30 @@ private:
         return balance(node);
     }
 
+    Node* _find(Node* root, const Key& key) const {
+        if (!root) {
+            return nullptr;
+        }
+        if (root->key == key) {
+            return root;
+        }
+        if (key < root->key) {
+            return _find(root->left, key);
+        }
+        return _find(root->right, key);
+    }
 public:
     AVLTree() : root(nullptr) {}
 
     void insert(const Key& key) {
         root = _insert(root, key);
+    }
+
+    const Key* find(const Key& key) const {
+        if (const auto* data = _find(root, key)) {
+            return &data->key;
+        }
+        return nullptr;
     }
 
     void remove(const Key& key) {
@@ -128,8 +146,4 @@ public:
     int getHeight() {
         return height(root);
     }
-
 };
-
-
-#endif //ALGORITHM_AVLTREE_H

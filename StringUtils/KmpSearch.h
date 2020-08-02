@@ -2,8 +2,7 @@
 // Created by Dima on 15.10.2017.
 //
 
-#ifndef ALGORITHMS_KMPSEARCH_H
-#define ALGORITHMS_KMPSEARCH_H
+#pragma once
 
 #include <vector>
 #include <string>
@@ -38,7 +37,3 @@ std::string::size_type KmpSearch(const std::string& pattern, const std::string& 
     }
     return index;
 }
-
-
-
-#endif //ALGORITHMS_KMPSEARCH_H

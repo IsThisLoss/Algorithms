@@ -2,8 +2,7 @@
 // Created by Dima on 22.03.2017.
 //
 
-#ifndef ALGORITHM_LSDSORT_H
-#define ALGORITHM_LSDSORT_H
+#pragma once
 
 #include <cstdint>
 #include <cstring>
@@ -39,5 +38,3 @@ void LSDByteSort(Int_type* A, unsigned n) {
     for (unsigned i = 0; i < sizeof(Int_type); i++)
         countSort(A, n, i);
 }
-
-#endif //ALGORITHM_LSDSORT_H

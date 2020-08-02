@@ -2,8 +2,7 @@
 // Created by Dima on 23.03.2017.
 //
 
-#ifndef ALGORITHM_QUICKSORT_H
-#define ALGORITHM_QUICKSORT_H
+#pragma once
 
 #include <cstdlib>
 #include <ctime>
@@ -113,6 +112,3 @@ void threeWayQuickSort(Iterator begin, Iterator end, size_t minDepth = 20) {
     //srand(time(nullptr));
     threeWayQuickSortBackend(begin, end - 1, minDepth);
 }
-
-
-#endif //ALGORITHM_QUICKSORT_H

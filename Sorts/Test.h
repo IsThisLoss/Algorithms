@@ -2,8 +2,7 @@
 // Created by Dima on 22.10.2017.
 //
 
-#ifndef ALGORITHMS_TEST_H
-#define ALGORITHMS_TEST_H
+#pragma once
 
 #include <iostream>
 #include <vector>
@@ -56,6 +55,3 @@ void sortTest() {
               << std::chrono::duration_cast<std::chrono::milliseconds>(t2-t1).count()
               << " milliseconds\n";
 }
-
-
-#endif //ALGORITHMS_TEST_H

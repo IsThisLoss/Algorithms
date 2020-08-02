@@ -9,6 +9,8 @@
 #include <iostream>
 #include <vector>
 
+// TODO
+
 struct Point
 {
     int x;

@@ -2,8 +2,7 @@
 // Created by isthisloss on 24.09.17.
 //
 
-#ifndef TESTING_GRAPH_H
-#define TESTING_GRAPH_H
+#pragma once
 
 #include <limits>
 #include <list>
@@ -16,10 +15,12 @@ namespace Graphs {
 }
 
 struct Graph {
-    explicit Graph(bool _directed = false, unsigned size) : directed(_directed),
-                                                            ajcList(size) {}
+    explicit Graph(unsigned size, bool _directed = false)
+        : ajcList(size)
+        , directed(_directed)
+        {}
 
-    virtual void addEdge(unsigned i, unsigned j) {
+    void addEdge(unsigned i, unsigned j) {
         ajcList[i].push_back(j);
         if (directed)
             ajcList[j].push_back(i);
@@ -30,18 +31,6 @@ struct Graph {
 };
 
 struct WeightedGraph {
-    explicit WeightedGraph(bool _directed = false, unsigned size) : directed(_directed),
-                                                                    ajcList(size) {}
-
-    void addEdge(unsigned i, unsigned j, int weight) {
-        ajcList[i].emplace_back(j, weight);
-        if (directed)
-            ajcList[j].emplace_back(i, weight);
-    }
-
-    std::vector < std::list<Edge> > ajcList;
-    bool directed;
-
     struct Edge {
         unsigned to;
         unsigned w;
@@ -51,7 +40,18 @@ struct WeightedGraph {
 
         Edge(unsigned _to, unsigned _w) : to(_to), w(_w) {}
     };
+
+    explicit WeightedGraph(unsigned size, bool _directed = false)
+        : ajcList(size)
+        , directed(_directed)
+        {}
+
+    void addEdge(unsigned i, unsigned j, int weight) {
+        ajcList[i].emplace_back(j, weight);
+        if (directed)
+            ajcList[j].emplace_back(i, weight);
+    }
+
+    std::vector < std::list<Edge>> ajcList;
+    bool directed;
 };
-
-
-#endif //TESTING_GRAPH_H

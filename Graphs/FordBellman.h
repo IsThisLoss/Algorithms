@@ -2,8 +2,7 @@
 // Created by isthisloss on 24.09.17.
 //
 
-#ifndef TESTING_FORDBELLMAN_H
-#define TESTING_FORDBELLMAN_H
+#pragma once
 
 #include <vector>
 #include "Graph.h"
@@ -38,5 +37,3 @@ std::vector<int> fordBellman(const Edges& edges, std::vector<int>& prev,
     // deal with x
     return distance;
 }
-
-#endif //TESTING_FORDBELLMAN_H

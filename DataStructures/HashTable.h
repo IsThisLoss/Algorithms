@@ -2,21 +2,19 @@
 // Created by Dima on 23.03.2017.
 //
 
-#ifndef ALGORITHM_HASHTABLE_H
-#define ALGORITHM_HASHTABLE_H
+#pragma once
 
 #include <vector>
-
 
 template <typename Key>
 struct Hasher {};
 
 template <>
 struct Hasher<std::string> {
-    size_t operator()(const std::string& string, size_t m) const {
+    size_t operator()(const std::string& str, size_t m) const {
         size_t hash = 0;
-        for (auto& i : string)
-            hash = (hash * 7 + i) % m;
+        for (char ch : str)
+            hash = (hash * 7 + ch) % m;
         return hash;
     }
 };
@@ -30,6 +28,7 @@ struct Hasher<int> {
 
 
 // TODO add iterators, make unordered_map
+// TODO need tests
 template <typename Key, class HasherFn = Hasher<Key> >
 class HashTable {
 private:
@@ -47,35 +46,38 @@ private:
 
     std::vector<Node> table;
     size_t currentSize;
-    const float rate = 3.0f/4.0f;
+    constexpr static float rate = 3.0f/4.0f;
     HasherFn hasher;
 
     void resize() {
-        std::vector<Node> tmp = table;
-        table.resize(2*table.size());
-        for (auto& i : table)
-            i.empty = true;
-
-        for (auto& i : tmp) // ???
-            if (i.empty == false)
-                insert(i.data);
+        std::vector<Node> currentState = table;
+        table.resize(2 * table.size());
+        for (auto& node : table) {
+            node.empty = true;
+        }
+        for (const auto& node : currentState) {
+            if (!node.empty) {
+                insert(node.data);
+            }
+        }
     }
 
 public:
-    HashTable() : table(8), currentSize(0) {}
+    HashTable()
+        : table(8)
+        , currentSize(0)
+        {}
 
     bool insert(const Key& key) {
         size_t hash = hasher(key, table.size());
         for (int i = 0; i < table.size(); i++) {
-
             if (table[hash].empty) {
                 table[hash].set(key);
                 break;
             }
-
-            if (table[hash].data == key)
+            if (table[hash].data == key) {
                 return false;
-
+            }
             hash = (hash + i + 1) % table.size();
         }
 
@@ -109,6 +111,3 @@ public:
         return false;
     }
 };
-
-
-#endif //ALGORITHM_HASHTABLE_H

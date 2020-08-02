@@ -1,8 +1,10 @@
+#include "String.h"
+
 #include <cstring>
 #include <stdexcept>
 #include <iostream>
 #include <cassert>
-#include "String.h"
+
 
 String::String() : dataSize(0) {
     impl.shortMode[0] = '\0';

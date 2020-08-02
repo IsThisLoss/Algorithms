@@ -1,7 +1,7 @@
-#ifndef STRING_STRING_H
-#define STRING_STRING_H
+#pragma once
 
 #include <cstddef>
+#include <iostream>
 
 class String final {
 public:
@@ -128,6 +128,3 @@ private:
     /*** Normal Mode interface ***/
     void normalModeCopy(const char *str, size_t strLen);
 };
-
-
-#endif //STRING_STRING_H

@@ -2,12 +2,12 @@
 // Created by Dima on 23.03.2017.
 //
 
-#ifndef ALGORITHM_TREAP_H
-#define ALGORITHM_TREAP_H
+#pragma once
 
 #include <vector>
 
 // TODO add remove method
+// TODO need research
 template <typename Key_type>
 class Treap {
 private:
@@ -43,8 +43,7 @@ private:
     }
 
 
-    void _insert(Node*& currentNode, Key_type key, int priority)
-    {
+    void _insert(Node*& currentNode, Key_type key, int priority) {
         if (!currentNode) {
             currentNode = new Node;
             currentNode->key = key;
@@ -63,17 +62,19 @@ private:
             currentNode->left = left;
             currentNode->right = right;
 
-        } else if (currentNode->key < key)
+        } else if (currentNode->key < key) {
             _insert(currentNode->right, key, priority);
-        else
+        } else {
             _insert(currentNode->left, key, priority);
+        }
     }
 
     int _depth(Node* currentNode, int depth) {
-        if (!currentNode)
+        if (!currentNode) {
             return depth;
-        else
-            return std::max(_depth(currentNode->left, depth + 1),  _depth(currentNode->right, depth + 1));
+        } else {
+            return std::max(_depth(currentNode->left, depth + 1), _depth(currentNode->right, depth + 1));
+        }
     }
 
 
@@ -88,6 +89,3 @@ public:
         return _depth(root, 0);
     }
 };
-
-
-#endif //ALGORITHM_TREAP_H

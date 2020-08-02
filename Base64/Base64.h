@@ -2,12 +2,12 @@
 // Created by Dima on 24.11.2017.
 //
 
-#ifndef BASE64_BASE64_H
-#define BASE64_BASE64_H
+#pragma once
 
 #include <string>
 #include <vector>
 
+// TODO need tests
 namespace Base64 {
 
     /**
@@ -33,6 +33,3 @@ namespace Base64 {
      */
     size_t decodedLength(const std::string& input);
 };
-
-
-#endif //BASE64_BASE64_H

@@ -2,11 +2,11 @@
 // Created by Dima on 21.03.2017.
 //
 
-#ifndef ALGORITHM_PRIORITYQUEUE_H
-#define ALGORITHM_PRIORITYQUEUE_H
+#pragma once
 
 #include <vector>
 
+// TODO need tests
 template <typename Key>
 class PriorityQueue {
 private:
@@ -64,5 +64,3 @@ public:
     }
 
 };
-
-#endif //ALGORITHM_PRIORITYQUEUE_H

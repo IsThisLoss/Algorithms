@@ -1,5 +1,4 @@
-#ifndef SPLIT_STRINGSPLIT_H
-#define SPLIT_STRINGSPLIT_H
+#pragma once
 
 #include <list>
 #include <cstring>
@@ -105,5 +104,3 @@ namespace StringSplit {
     }
 
 }
-
-#endif //SPLIT_STRINGSPLIT_H

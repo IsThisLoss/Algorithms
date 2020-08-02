@@ -2,10 +2,10 @@
 // Created by Dima on 24.11.2017.
 //
 
-#include <stdexcept>
-#include <cmath>
 #include "Base64.h"
 
+#include <cmath>
+#include <stdexcept>
 
 namespace Base64 {
     namespace {
@@ -69,7 +69,7 @@ namespace Base64 {
     }
 
     std::vector<uint8_t> decode(const std::string &input) {
-        auto decodedSize = decodedLength(input);
+        const size_t decodedSize = decodedLength(input);
 
         std::vector<uint8_t> out;
         out.reserve(decodedSize);
