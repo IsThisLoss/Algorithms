@@ -12,6 +12,7 @@
 #include "./MergeSort.h"
 #include "./HeapSort.h"
 
+// TODO use google benchmark
 void sortTest() {
     // init
     constexpr unsigned N = 10000000;

@@ -7,7 +7,6 @@
 #include <string>
 #include <vector>
 
-// TODO need tests
 namespace Base64 {
 
     /**

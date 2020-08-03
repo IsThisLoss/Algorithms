@@ -14,15 +14,15 @@ void insertionSort(Iterator begin, Iterator end) {
     typename Iterator::value_type tmp;
     for (auto i = std::next(begin); i <= end; i++) {
         tmp = *i;
-        for (j = std::prev(i); j >= begin && tmp < *j; j--)
-            *(j+1) = *j;
+        for (j = std::prev(i); j >= begin && tmp < *j; j--) {
+            *(j + 1) = *j;
+        }
         *(j+1) = tmp;
     }
 }
 
 template <typename Iterator>
 static void quickSortBackend(Iterator begin, Iterator end, size_t minDepth) {
-
     while (begin < end) {
         // small range will be sorted via insertion sort
         if (std::distance(begin, end) < minDepth) {
@@ -63,9 +63,8 @@ static void quickSortBackend(Iterator begin, Iterator end, size_t minDepth) {
 
 template <typename Iterator>
 static void threeWayQuickSortBackend(Iterator begin, Iterator end, size_t minDepth) {
-
     while (begin < end) {
-        // sort smal range via insertion sort
+        // sort small range via insertion sort
         if (std::distance(begin, end) < minDepth) {
             insertionSort(begin, end);
             return;
@@ -103,12 +102,18 @@ static void threeWayQuickSortBackend(Iterator begin, Iterator end, size_t minDep
 
 template <typename Iterator>
 void quickSort(Iterator begin, Iterator end, size_t minDepth = 20) {
+    if (begin >= end) {
+        return;
+    }
     //srand(time(nullptr));
     quickSortBackend(begin, end - 1, minDepth);
 }
 
 template <typename Iterator>
 void threeWayQuickSort(Iterator begin, Iterator end, size_t minDepth = 20) {
+    if (begin >= end) {
+        return;
+    }
     //srand(time(nullptr));
     threeWayQuickSortBackend(begin, end - 1, minDepth);
 }

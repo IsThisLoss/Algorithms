@@ -119,7 +119,7 @@ private:
         impl.shortMode[shortModeSize - 1] = static_cast<char>(size);
     }
 
-    inline bool fitInShortMode(size_t size) {
+    static inline bool fitInShortMode(size_t size) {
         return size <= shortModeSize - 2;
     }
 

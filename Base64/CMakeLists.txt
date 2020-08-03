@@ -1,0 +1,1 @@
+add_library(Base64 Base64.cpp Base64.h)
