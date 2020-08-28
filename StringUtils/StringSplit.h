@@ -102,5 +102,4 @@ namespace StringSplit {
         }
         return vector;
     }
-
 }
