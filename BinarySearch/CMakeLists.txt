@@ -1,0 +1,1 @@
+add_library(BinarySearch BinarySearch.cpp BinarySearch.h)
