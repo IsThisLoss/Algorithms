@@ -1,8 +1,12 @@
 add_library(
         Sorts
         HeapSort.h
+        HeapSort.cpp
         LSDByteSort.h
         MergeSort.h
+        MergeSort.cpp
         QuickSort.h
         QuickSort.cpp
+        InsertionSort.h
+        InsertionSort.cpp
 )
