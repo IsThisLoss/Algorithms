@@ -5,6 +5,7 @@
 #pragma once
 
 #include <vector>
+#include <string>
 
 template <typename Key>
 struct Hasher {};

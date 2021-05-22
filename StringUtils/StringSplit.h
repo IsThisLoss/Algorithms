@@ -84,9 +84,11 @@ namespace StringSplit {
     }
 
     template <class StringType>
-    std::list<StringType> splitToVector(const StringType& string, char sep) {
+    std::vector<StringType> splitToVector(const StringType& string, char sep) {
         std::vector<StringType> vector;
-        size_t i, size, b = 0;
+        size_t i = 0;
+        size_t size = 0;
+        size_t b = 0;
         bool end = false;
         for (i = 0; !end; i++) {
             end = (i == string.size());
@@ -102,4 +104,6 @@ namespace StringSplit {
         }
         return vector;
     }
+
+    // TODO string_view version
 }
