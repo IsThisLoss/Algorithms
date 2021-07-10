@@ -18,6 +18,11 @@ public:
     void clear();
 
     /**
+     * @return true if string is empty
+     */
+    bool empty() const;
+
+    /**
      * @return current size of the string
      */
     size_t size() const;

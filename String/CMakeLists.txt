@@ -1,5 +1,5 @@
 add_library(
-        string
+        String
         String.h
         String.cpp
 )

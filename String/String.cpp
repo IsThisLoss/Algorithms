@@ -138,6 +138,10 @@ size_t String::size() const {
     // for short mode store current size in last byte
     return static_cast<size_t>(impl.shortMode[shortModeSize - 1]);
 }
+  
+bool String::empty() const {
+  return size() == 0;
+}
 
 size_t String::capacity() const {
     if (isNormalMode()) {
