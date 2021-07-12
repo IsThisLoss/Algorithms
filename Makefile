@@ -1,8 +1,5 @@
-mkbuild: ./build
-	mkdir -p ./build
-
-cmake: mkbuild
-	cd ./build && cmake ..
+cmake:
+	mkdir -p ./build && cd ./build && cmake ..
 
 build: cmake
 	cd ./build && cmake --build .
