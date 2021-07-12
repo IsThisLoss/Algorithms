@@ -1,6 +1,8 @@
 # Algorithms
 My implementation of popular algorithms 
 
+![CI](https://github.com/IsThisLoss/Algorithms/actions/workflows/ci.yml/badge.svg)
+
 ## 1. Sorts
   * [Heap sort](https://github.com/IsThisLoss/Algorithms/blob/master/Sorts/HeapSort.h)
   * [Merge sort](https://github.com/IsThisLoss/Algorithms/blob/master/Sorts/MergeSort.h)
