@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.6)
+cmake_minimum_required(VERSION 3.11)
 project(Algorithms)
 
 set(CMAKE_CXX_STANDARD 14)
@@ -7,6 +7,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_subdirectory(submodules/googletest)
 add_subdirectory(submodules/benchmark)
+
+enable_testing()
 
 add_subdirectory(Base64)
 add_subdirectory(Base64/tests)
