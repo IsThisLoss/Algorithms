@@ -49,8 +49,3 @@ TEST(AVLTree, insertDuplicates) {
   ASSERT_NE(tree.find(1), nullptr);
   ASSERT_NE(tree.find(2), nullptr);
 }
-
-int main(int argc, char* argv[]) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}

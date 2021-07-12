@@ -22,8 +22,3 @@ TEST(Base64, decodedLength) {
     const size_t result = Base64::decodedLength("SGVsbG8gV29ybGQ=");
     ASSERT_EQ(result, strToBytes("Hello World").size());
 }
-
-int main(int argc, char* argv[]) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}

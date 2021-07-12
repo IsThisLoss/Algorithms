@@ -47,7 +47,14 @@ TEST(BinarySearch, ElementNotFound) {
     ASSERT_EQ(it, array.end());
 }
 
-int main(int argc, char* argv[]) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
+TEST(BinarySearch, ElementNotFoundGreater) {
+    std::vector<int> array{1, 2, 3, 4, 6, 7};
+    auto it = BinarySearch::BinarySearch(array, 10);
+    ASSERT_EQ(it, array.end());
+}
+
+TEST(BinarySearch, ElementNotFoundLesser) {
+    std::vector<int> array{1, 2, 3, 4, 6, 7};
+    auto it = BinarySearch::BinarySearch(array, -10);
+    ASSERT_EQ(it, array.end());
 }

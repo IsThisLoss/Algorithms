@@ -63,8 +63,3 @@ INSTANTIATE_TEST_SUITE_P(
         SortTest,
         ::testing::ValuesIn(sortingAlgorithms)
         );
-
-int main(int argc, char* argv[]) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
