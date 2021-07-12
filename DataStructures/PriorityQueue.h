@@ -6,7 +6,6 @@
 
 #include <vector>
 
-// TODO need tests
 template <typename Key>
 class PriorityQueue {
 private:
