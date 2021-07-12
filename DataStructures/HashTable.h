@@ -29,7 +29,6 @@ struct Hasher<int> {
 
 
 // TODO add iterators, make unordered_map
-// TODO need tests
 template <typename Key, class HasherFn = Hasher<Key> >
 class HashTable {
 private:
@@ -110,5 +109,13 @@ public:
             hash = (hash + i + 1) % table.size();
         }
         return false;
+    }
+
+    size_t size() const {
+      return currentSize;
+    }
+
+    bool isEmpty() const {
+      return currentSize == 0;
     }
 };

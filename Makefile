@@ -1,8 +1,11 @@
 mkbuild: ./build
 	mkdir -p ./build
 
-build: mkbuild
-	cd ./build && cmake .. && cmake --build .
+cmake: mkbuild
+	cd ./build && cmake ..
+
+build: cmake
+	cd ./build && cmake --build .
 
 clean:
 	cd ./build && cmake --build . --target clean
