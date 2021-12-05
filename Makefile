@@ -8,7 +8,4 @@ clean:
 	cd ./build && cmake --build . --target clean
 
 tests: build
-	cd ./build && ctest -R "test_.*"
-
-all_tests: build
-	cd ./build && ctest .
+	cd ./build && ctest
