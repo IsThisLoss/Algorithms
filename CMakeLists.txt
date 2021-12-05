@@ -7,9 +7,6 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 
-add_subdirectory(submodules/googletest)
-add_subdirectory(submodules/benchmark)
-
 enable_testing()
 
 add_subdirectory(Base64)
