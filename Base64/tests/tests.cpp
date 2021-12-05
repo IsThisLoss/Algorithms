@@ -22,3 +22,7 @@ TEST(Base64, decodedLength) {
     const size_t result = Base64::decodedLength("SGVsbG8gV29ybGQ=");
     ASSERT_EQ(result, strToBytes("Hello World").size());
 }
+
+TEST(Base64, Break) {
+  ASSERT_FALSE(true);
+}
