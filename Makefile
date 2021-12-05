@@ -1,3 +1,6 @@
+install-deps:
+	apt install -y libbenchmark-dev libgtest-dev
+
 cmake:
 	mkdir -p ./build && cd ./build && cmake ..
 

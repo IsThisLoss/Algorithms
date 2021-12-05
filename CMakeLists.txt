@@ -7,8 +7,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 
-add_subdirectory(submodules/googletest EXCLUDE_FROM_ALL)
-add_subdirectory(submodules/benchmark)
+enable_testing()
 
 add_subdirectory(Base64)
 add_subdirectory(Base64/tests)
@@ -26,5 +25,3 @@ add_subdirectory(Xrange)
 add_subdirectory(Xrange/tests)
 add_subdirectory(BinarySearch)
 add_subdirectory(BinarySearch/tests)
-
-configure_file(${CMAKE_SOURCE_DIR}/CTestCustom.cmake ${CMAKE_BINARY_DIR} @ONLY)
