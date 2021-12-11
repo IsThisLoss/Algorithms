@@ -1,6 +1,11 @@
 include_directories(${PROJECT_SOURCE_DIR}/StringUtils)
 
-add_executable(test_string_utils StringUtils.cpp LevenshtainDistance.cpp)
+add_executable(
+  test_string_utils
+  KmpSearch.cpp
+  StringSplit.cpp 
+  LevenshtainDistance.cpp
+)
 
 target_link_libraries(test_string_utils gtest gtest_main pthread StringUtils)
 
