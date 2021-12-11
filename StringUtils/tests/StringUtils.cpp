@@ -80,8 +80,3 @@ TEST(StringSplit, SplitMany) {
     ASSERT_EQ(token, expected_tokens[i++]);
   }
 }
-
-int main(int argc, char* argv[]) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
