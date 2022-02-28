@@ -1,5 +1,8 @@
 #include <gtest/gtest.h>
+
 #include "String.h"
+
+namespace String {
 
 TEST(String, empty) {
   String s;
@@ -73,4 +76,6 @@ TEST(String, copySubstring) {
   String lhs{"Hello"};
   String rhs{lhs, 1, 1};
   ASSERT_STREQ(rhs.c_str(), "e");
+}
+
 }

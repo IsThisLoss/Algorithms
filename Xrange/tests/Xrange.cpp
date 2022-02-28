@@ -1,7 +1,8 @@
 #include <gtest/gtest.h>
-#include "Xrange.h"
 
-using namespace Xrange;
+#include <Xrange.h>
+
+namespace Xrange { 
 
 TEST(Xrange, onlyStop) {
     std::vector<int> data;
@@ -37,4 +38,6 @@ TEST(Xrange, negativeStep) {
         data.push_back(i);
     }
     ASSERT_EQ(data, expected);
+}
+
 }

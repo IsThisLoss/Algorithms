@@ -1,11 +1,9 @@
-//
-// Created by Dima on 23.03.2017.
-//
-
 #pragma once
 
 #include <vector>
 #include <string>
+
+namespace DataStructures {
 
 template <typename Key>
 struct Hasher {};
@@ -119,3 +117,5 @@ public:
       return currentSize == 0;
     }
 };
+
+}

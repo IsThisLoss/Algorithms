@@ -2,6 +2,8 @@
 
 #include "PriorityQueue.h"
 
+namespace DataStructures {
+
 TEST(PriorityQueue, isEmpty) {
   PriorityQueue<int> queue;
   ASSERT_TRUE(queue.isEmpty());
@@ -42,4 +44,6 @@ TEST(PriorityQueue, priority) {
   ASSERT_FALSE(queue.isEmpty());
   ASSERT_EQ(queue.pop(), 1);
   ASSERT_TRUE(queue.isEmpty());
+}
+
 }

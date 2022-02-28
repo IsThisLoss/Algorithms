@@ -2,6 +2,7 @@
 
 #include "LevenshtainDistance.h"
 
+namespace StringUtils {
 
 BKTree::BKTree()
   : root{nullptr}
@@ -53,4 +54,6 @@ std::vector<std::string> BKTree::find(const std::string& str, const int threshol
   std::vector<std::string> result;
   find(root, str, threshold, result);
   return result;
+}
+
 }

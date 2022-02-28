@@ -1,10 +1,8 @@
-//
-// Created by isthisloss on 23.03.2017.
-//
-
 #pragma once
 
 #include <algorithm>
+
+namespace Sorts {
 
 template <typename Container>
 static void heapify(Container& array, int size, int i) {
@@ -39,4 +37,6 @@ void heapSort(Container& array) {
         heapSize--;
         heapify(array, heapSize, 0);
     }
+}
+
 }

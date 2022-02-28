@@ -5,16 +5,21 @@
 #include "MergeSort.h"
 #include "HeapSort.h"
 
+namespace Sorts {
+
 namespace {
-    using Algorithm = std::function<void(std::vector<int>&)>;
-    std::vector<Algorithm> sortingAlgorithms = {
-            quickSort<std::vector<int>>,
-            threeWayQuickSort<std::vector<int>>,
-            insertionSort<std::vector<int>>,
-            mergeSort<std::vector<int>>,
-            heapSort<std::vector<int>>,
-            recursiveMergeSort<std::vector<int>>,
-    };
+
+using Algorithm = std::function<void(std::vector<int>&)>;
+
+std::vector<Algorithm> sortingAlgorithms = {
+        quickSort<std::vector<int>>,
+        threeWayQuickSort<std::vector<int>>,
+        insertionSort<std::vector<int>>,
+        mergeSort<std::vector<int>>,
+        heapSort<std::vector<int>>,
+        recursiveMergeSort<std::vector<int>>,
+};
+
 }
 
 class SortTest : public ::testing::TestWithParam<Algorithm> {};
@@ -63,3 +68,5 @@ INSTANTIATE_TEST_SUITE_P(
         SortTest,
         ::testing::ValuesIn(sortingAlgorithms)
         );
+
+}

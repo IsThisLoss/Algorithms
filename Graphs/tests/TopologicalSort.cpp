@@ -2,6 +2,8 @@
 
 #include <TopologicalSort.h>
 
+namespace Graphs {
+
 std::vector<unsigned> ToVector(std::stack<unsigned>&& data) {
   std::vector<unsigned> result;
   result.reserve(data.size());
@@ -30,4 +32,6 @@ TEST(TopologicalSort, Complex) {
   const std::vector<unsigned> expected{5, 4, 2, 3, 1, 0};
 
   ASSERT_EQ(result, expected);
+}
+
 }

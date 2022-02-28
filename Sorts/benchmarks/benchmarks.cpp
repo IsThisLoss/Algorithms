@@ -8,20 +8,24 @@
 #include <cstdlib>
 #include <ctime>
 
+namespace Sorts {
+
 namespace {
-    std::vector<int> GenerateInput() {
-        constexpr unsigned N = 100000;
-        std::vector<int> array(N);
-        srand(static_cast<unsigned>(time(nullptr)));
-        std::generate(array.begin(), array.end(), rand);
-        return array;
-    }
 
-    const std::vector<int> stableInput = GenerateInput();
+std::vector<int> GenerateInput() {
+    constexpr unsigned N = 100000;
+    std::vector<int> array(N);
+    srand(static_cast<unsigned>(time(nullptr)));
+    std::generate(array.begin(), array.end(), rand);
+    return array;
+}
 
-    std::vector<int> GetStableInput() {
-        return stableInput;
-    }
+const std::vector<int> stableInput = GenerateInput();
+
+std::vector<int> GetStableInput() {
+    return stableInput;
+}
+
 }
 
 void BM_quickSort(benchmark::State& state) {
@@ -68,5 +72,7 @@ void BM_heapSort(benchmark::State& state) {
 }
 
 BENCHMARK(BM_heapSort);
+
+}
 
 BENCHMARK_MAIN();

@@ -2,6 +2,8 @@
 
 #include <ConnectedComponents.h>
 
+namespace Graphs {
+
 TEST(ConnectedComponents, Directed) {
   /*
    * 0 -> 1 -> 2 <- 3
@@ -32,4 +34,6 @@ TEST(ConnectedComponents, Undirected) {
 
   const auto result = connectedComponents(graph);
   ASSERT_EQ(result, 2);
+}
+
 }

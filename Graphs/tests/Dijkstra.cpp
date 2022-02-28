@@ -2,6 +2,8 @@
 
 #include <DijkstraSparse.h>
 
+namespace Graphs {
+
 TEST(DijkstraSparse, Complex) {
   /*
    * 0 -10-> 1 -20-> 2
@@ -25,4 +27,6 @@ TEST(DijkstraSparse, Complex) {
     0, 0, 1, 2,
   };
   ASSERT_EQ(prev, expectedPrev);
+}
+
 }

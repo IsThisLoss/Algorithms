@@ -2,6 +2,8 @@
 
 #include <BKTree.h>
 
+namespace StringUtils {
+
 TEST(BKTree, Empty) {
   BKTree bkTree;
   const auto result = bkTree.find("hello", 1);
@@ -51,4 +53,6 @@ TEST(BKTree, Complex) {
   sort(result.begin(), result.end());
   const std::vector<std::string> expected{"boo", "book", "books", "boon", "cook"};
   ASSERT_EQ(result, expected);
+}
+
 }

@@ -1,10 +1,8 @@
-//
-// Created by Dima on 21.03.2017.
-//
-
 #pragma once
 
 #include <vector>
+
+namespace DataStructures {
 
 template <typename Key>
 class PriorityQueue {
@@ -63,3 +61,5 @@ public:
     }
 
 };
+
+}

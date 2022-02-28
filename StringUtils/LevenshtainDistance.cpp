@@ -4,6 +4,8 @@
 #include <numeric>
 #include <vector>
 
+namespace StringUtils {
+
 /*
  * Assume that
  *
@@ -61,4 +63,6 @@ std::string::size_type levenshtainDistance(const std::string& lhs, const std::st
     std::swap(current_row, prev_row);
   }
   return prev_row.back();
+}
+
 }

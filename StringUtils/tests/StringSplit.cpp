@@ -2,6 +2,8 @@
 
 #include "StringSplit.h"
 
+namespace StringUtils {
+
 TEST(StringSplit, EmptyInput) {
   const std::string input = "";
   const auto result = StringSplit::split(input, ',');
@@ -45,3 +47,4 @@ TEST(StringSplit, SplitMany) {
   }
 }
 
+}

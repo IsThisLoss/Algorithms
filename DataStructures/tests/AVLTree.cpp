@@ -2,6 +2,8 @@
 
 #include "AVLTree.h"
 
+namespace DataStructures {
+
 TEST(AVLTree, empty) {
   AVLTree<int> tree;
   ASSERT_EQ(tree.find(1), nullptr);
@@ -48,4 +50,6 @@ TEST(AVLTree, insertDuplicates) {
   tree.insert(1);
   ASSERT_NE(tree.find(1), nullptr);
   ASSERT_NE(tree.find(2), nullptr);
+}
+
 }
