@@ -1,7 +1,3 @@
-//
-// Created by IsThisLoss on 02.08.2020.
-//
-
 #include "DijkstraSparse.h"
 
 std::vector<unsigned int> dijkstraSparse(const WeightedGraph& graph, std::vector<unsigned int>& prev, unsigned int s) {
