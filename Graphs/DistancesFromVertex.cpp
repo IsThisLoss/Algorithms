@@ -2,6 +2,8 @@
 
 #include <queue>
 
+namespace Graphs {
+
 std::vector<unsigned> distanceFromVertex(const Graph& graph, unsigned int vertex) {
     std::vector<unsigned> distance(graph.ajcList.size(), Graphs::UINF);
     std::vector<Graphs::Byte> visited(graph.ajcList.size(), 0);
@@ -25,4 +27,6 @@ std::vector<unsigned> distanceFromVertex(const Graph& graph, unsigned int vertex
         visited[u] = 1;
     }
     return distance;
+}
+
 }

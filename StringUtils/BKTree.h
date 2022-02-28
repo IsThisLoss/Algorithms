@@ -5,6 +5,8 @@
 #include <memory>
 #include <map>
 
+namespace StringUtils {
+
 class BKTree {
   public:
     BKTree();
@@ -26,3 +28,5 @@ class BKTree {
     static void insert(NodePtr& root, const std::string& str);
     static void find(const NodePtr& root, const std::string& str, const int threshold, std::vector<std::string>& result);
 };
+
+}

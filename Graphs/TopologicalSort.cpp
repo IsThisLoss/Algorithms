@@ -1,15 +1,19 @@
 #include "TopologicalSort.h"
 
+namespace Graphs {
+
 namespace {
-    void dfsVisitTs(const Graph& graph, std::vector<Graphs::Byte>& visited, std::stack<unsigned>& res, unsigned u) {
-        visited[u] = 1;
-        for (const auto& v : graph.ajcList[u]) {
-            if (!visited[v]) {
-                dfsVisitTs(graph, visited, res, v);
-            }
+
+void dfsVisitTs(const Graph& graph, std::vector<Graphs::Byte>& visited, std::stack<unsigned>& res, unsigned u) {
+    visited[u] = 1;
+    for (const auto& v : graph.ajcList[u]) {
+        if (!visited[v]) {
+            dfsVisitTs(graph, visited, res, v);
         }
-        res.push(u);
     }
+    res.push(u);
+}
+
 }
 
 std::stack<unsigned> topologicalSort(const Graph &graph) {
@@ -22,4 +26,6 @@ std::stack<unsigned> topologicalSort(const Graph &graph) {
         }
     }
     return res;
+}
+
 }

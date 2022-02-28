@@ -5,6 +5,7 @@
 #include <iostream>
 #include <cassert>
 
+namespace String {
 
 String::String() : dataSize(0) {
     impl.shortMode[0] = '\0';
@@ -290,4 +291,6 @@ void swap(String& left, String& right) {
 std::ostream& operator<<(std::ostream& out, const String& string) {
     out << string.c_str();
     return out;
+}
+
 }

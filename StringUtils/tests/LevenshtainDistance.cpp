@@ -2,6 +2,8 @@
 
 #include <LevenshtainDistance.h>
 
+namespace StringUtils {
+
 TEST(levenshtainDistance, Empty) {
   const auto result = levenshtainDistance("", "");
   ASSERT_EQ(result, 0);
@@ -40,4 +42,6 @@ TEST(levenshtainDistance, DifferentLengthLhsless) {
 TEST(levenshtainDistance, DifferentLengthRhsless) {
   const auto result = levenshtainDistance("abcdefgh", "el");
   ASSERT_EQ(result, 7);
+}
+
 }

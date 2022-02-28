@@ -1,5 +1,7 @@
 #include "KmpSearch.h"
 
+namespace StringUtils {
+
 std::vector<unsigned> getPrefixFunction(const std::string& string) {
     std::vector<unsigned> prefixFunction(string.size(), 0);
     unsigned k = 0;
@@ -32,4 +34,6 @@ std::string::size_type KmpSearch(const std::string& pattern, const std::string& 
         }
     }
     return index;
+}
+
 }

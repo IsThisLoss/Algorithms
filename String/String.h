@@ -3,6 +3,8 @@
 #include <cstddef>
 #include <iostream>
 
+namespace String {
+
 class String final {
 public:
     String();
@@ -133,3 +135,5 @@ private:
     /*** Normal Mode interface ***/
     void normalModeCopy(const char *str, size_t strLen);
 };
+
+}

@@ -1,41 +1,43 @@
 #pragma once
 
 namespace Xrange {
-    class XRangeIterator {
-    public:
-        XRangeIterator(int _current, int _step);
 
-        bool operator!=(const XRangeIterator& rhs) const;
+class XRangeIterator {
+public:
+    XRangeIterator(int _current, int _step);
 
-        int operator*();
+    bool operator!=(const XRangeIterator& rhs) const;
 
-        XRangeIterator& operator++();
-    private:
-        int current;
-        int step;
-    };
+    int operator*();
 
-    class XRange {
-    public:
-        XRange(int _start, int _stop, int _step);
+    XRangeIterator& operator++();
+private:
+    int current;
+    int step;
+};
 
-        XRangeIterator begin();
+class XRange {
+public:
+    XRange(int _start, int _stop, int _step);
 
-        XRangeIterator end();
-    private:
-        XRangeIterator start;
-        XRangeIterator stop;
-    };
+    XRangeIterator begin();
 
-    inline XRange xrange(int stop) {
-        return XRange(0, stop, 1);
-    }
+    XRangeIterator end();
+private:
+    XRangeIterator start;
+    XRangeIterator stop;
+};
 
-    inline XRange xrange(int start, int stop) {
-        return XRange(start, stop, 1);
-    }
+inline XRange xrange(int stop) {
+    return XRange(0, stop, 1);
+}
 
-    inline XRange xrange(int start, int stop, int step) {
-        return XRange(start, stop, step);
-    }
+inline XRange xrange(int start, int stop) {
+    return XRange(start, stop, 1);
+}
+
+inline XRange xrange(int start, int stop, int step) {
+    return XRange(start, stop, step);
+}
+
 }

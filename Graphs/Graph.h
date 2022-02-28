@@ -5,10 +5,10 @@
 #include <vector>
 
 namespace Graphs {
-    using Byte = unsigned char;
-    constexpr unsigned UINF = std::numeric_limits<unsigned>::max();
-    constexpr int INF = std::numeric_limits<int>::max();
-}
+
+using Byte = unsigned char;
+constexpr unsigned UINF = std::numeric_limits<unsigned>::max();
+constexpr int INF = std::numeric_limits<int>::max();
 
 struct Graph {
     explicit Graph(unsigned size, bool _directed = false)
@@ -53,3 +53,5 @@ struct WeightedGraph {
     std::vector<std::list<Edge>> ajcList;
     bool directed;
 };
+
+}

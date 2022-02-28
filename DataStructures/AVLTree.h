@@ -1,10 +1,7 @@
-//
-// Created by Dima on 23.03.2017.
-//
-
 #pragma once
 
-// TODO need tests
+namespace DataStructures {
+
 template <typename Key>
 class AVLTree {
 private:
@@ -147,3 +144,5 @@ public:
         return height(root);
     }
 };
+
+}

@@ -1,5 +1,7 @@
 #include "DijkstraSparse.h"
 
+namespace Graphs {
+
 std::vector<unsigned int> dijkstraSparse(const WeightedGraph& graph, std::vector<unsigned int>& prev, unsigned int s) {
     std::vector<unsigned> distance(graph.ajcList.size(), Graphs::UINF);
     prev = std::vector<unsigned>(graph.ajcList.size());
@@ -24,4 +26,6 @@ std::vector<unsigned int> dijkstraSparse(const WeightedGraph& graph, std::vector
         }
     }
     return distance;
+}
+
 }

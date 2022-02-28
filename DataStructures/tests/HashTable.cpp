@@ -2,6 +2,8 @@
 
 #include "HashTable.h"
 
+namespace DataStructures {
+
 TEST(HashTable, isEmpty) {
   HashTable<std::string> hash;
   ASSERT_TRUE(hash.isEmpty()); 
@@ -30,4 +32,6 @@ TEST(HashTable, remove) {
   ASSERT_FALSE(hash.find(HELLO));
   ASSERT_TRUE(hash.isEmpty());
   ASSERT_EQ(hash.size(), 0);
+}
+
 }

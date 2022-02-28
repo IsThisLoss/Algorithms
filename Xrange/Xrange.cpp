@@ -1,38 +1,40 @@
 #include "Xrange.h"
 
 namespace Xrange {
-    /*** Iterator ***/
 
-    XRangeIterator::XRangeIterator(int _current, int _step)
-            : current(_current)
-            , step(_step)
-    {}
+/*** Iterator ***/
 
-    bool XRangeIterator::operator!=(const Xrange::XRangeIterator &rhs) const {
-        return current != rhs.current;
-    }
+XRangeIterator::XRangeIterator(int _current, int _step)
+        : current(_current)
+        , step(_step)
+{}
 
-    int XRangeIterator::operator*() {
-        return current;
-    }
+bool XRangeIterator::operator!=(const Xrange::XRangeIterator &rhs) const {
+    return current != rhs.current;
+}
 
-    XRangeIterator& XRangeIterator::operator++() {
-        current += step;
-        return *this;
-    }
+int XRangeIterator::operator*() {
+    return current;
+}
 
-    /*** Range ***/
+XRangeIterator& XRangeIterator::operator++() {
+    current += step;
+    return *this;
+}
 
-    XRange::XRange(int _start, int _stop, int _step)
-            : start(_start, _step)
-            , stop(_stop, _step)
-    {}
+/*** Range ***/
 
-    XRangeIterator XRange::begin() {
-        return start;
-    }
+XRange::XRange(int _start, int _stop, int _step)
+        : start(_start, _step)
+        , stop(_stop, _step)
+{}
 
-    XRangeIterator XRange::end() {
-        return stop;
-    }
+XRangeIterator XRange::begin() {
+    return start;
+}
+
+XRangeIterator XRange::end() {
+    return stop;
+}
+
 }

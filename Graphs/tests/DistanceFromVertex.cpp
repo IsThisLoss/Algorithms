@@ -2,6 +2,8 @@
 
 #include <DistancesFromVertex.h>
 
+namespace Graphs {
+
 TEST(DistancesFromVertex, Directed) {
   /*
    * 0 -> 1 -> 2 <- 3
@@ -55,4 +57,6 @@ TEST(DistancesFromVertex, StartFromMiddle) {
     2, 1, 0, 1, 2
   };
   ASSERT_EQ(result, expected);
+}
+
 }

@@ -1,13 +1,11 @@
-//
-// Created by Dima on 22.03.2017.
-//
-
 #pragma once
 
 #include <cstdint>
 #include <cstring>
 
-#define MAX_BYTE 256
+namespace Sorts {
+
+constexpr const int MAX_BYTE = 256;
 
 template <typename IntType>
 unsigned char getByte(const IntType& x, const unsigned& n) {
@@ -37,4 +35,6 @@ template <typename Int_type>
 void LSDByteSort(Int_type* A, unsigned n) {
     for (unsigned i = 0; i < sizeof(Int_type); i++)
         countSort(A, n, i);
+}
+
 }

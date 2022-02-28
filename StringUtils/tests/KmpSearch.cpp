@@ -2,6 +2,8 @@
 
 #include "KmpSearch.h"
 
+namespace StringUtils {
+
 TEST(KmpSearch, EmptyPattern) {
   const auto result = KmpSearch("", "text");
   ASSERT_EQ(result, std::string::npos);
@@ -35,4 +37,6 @@ TEST(KmpSearch, EndSubstringFound) {
 TEST(KmpSearch, EndSubstring) {
   const auto result = KmpSearch("xtt", "text");
   ASSERT_EQ(result, std::string::npos);
+}
+
 }
