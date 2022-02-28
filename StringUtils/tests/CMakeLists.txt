@@ -5,6 +5,7 @@ add_executable(
   KmpSearch.cpp
   StringSplit.cpp 
   LevenshtainDistance.cpp
+  BKTree.cpp
 )
 
 target_link_libraries(test_string_utils gtest gtest_main pthread StringUtils)
