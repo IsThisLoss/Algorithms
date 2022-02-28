@@ -6,8 +6,6 @@ add_library(
         HashTable.cpp
         PriorityQueue.h
         PriorityQueue.cpp
-        Treap.h
-        Treap.cpp
 )
 
 set_target_properties(DataStructures PROPERTIES LINKER_LANGUAGE CXX)
