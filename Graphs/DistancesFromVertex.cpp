@@ -1,8 +1,6 @@
-//
-// Created by IsThisLoss on 02.08.2020.
-//
-
 #include "DistancesFromVertex.h"
+
+#include <queue>
 
 std::vector<unsigned> distanceFromVertex(const Graph& graph, unsigned int vertex) {
     std::vector<unsigned> distance(graph.ajcList.size(), Graphs::UINF);
@@ -17,7 +15,7 @@ std::vector<unsigned> distanceFromVertex(const Graph& graph, unsigned int vertex
     while (!queue.empty()) {
         unsigned u = queue.front();
         queue.pop();
-        for (auto& v : graph.ajcList[u]) {
+        for (const auto& v : graph.ajcList[u]) {
             if (!visited[v]) {
                 visited[v] = 1;
                 distance[v] = distance[u] + 1;

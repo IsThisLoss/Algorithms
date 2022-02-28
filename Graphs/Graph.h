@@ -1,7 +1,3 @@
-//
-// Created by isthisloss on 24.09.17.
-//
-
 #pragma once
 
 #include <limits>
@@ -22,11 +18,12 @@ struct Graph {
 
     void addEdge(unsigned i, unsigned j) {
         ajcList[i].push_back(j);
-        if (directed)
+        if (!directed) {
             ajcList[j].push_back(i);
+        }
     }
 
-    std::vector < std::list<unsigned> > ajcList;
+    std::vector<std::list<unsigned>> ajcList;
     bool directed;
 };
 
@@ -48,10 +45,11 @@ struct WeightedGraph {
 
     void addEdge(unsigned i, unsigned j, int weight) {
         ajcList[i].emplace_back(j, weight);
-        if (directed)
+        if (!directed) {
             ajcList[j].emplace_back(i, weight);
+        }
     }
 
-    std::vector < std::list<Edge>> ajcList;
+    std::vector<std::list<Edge>> ajcList;
     bool directed;
 };

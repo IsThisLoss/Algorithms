@@ -1,14 +1,10 @@
-//
-// Created by IsThisLoss on 02.08.2020.
-//
-
 #include "TopologicalSort.h"
 
 namespace {
     void dfsVisitTs(const Graph& graph, std::vector<Graphs::Byte>& visited, std::stack<unsigned>& res, unsigned u) {
         visited[u] = 1;
-        for (auto& v : graph.ajcList[u]) {
-            if (!visited[u]) {
+        for (const auto& v : graph.ajcList[u]) {
+            if (!visited[v]) {
                 dfsVisitTs(graph, visited, res, v);
             }
         }

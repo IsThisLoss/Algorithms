@@ -1,14 +1,12 @@
-//
-// Created by IsThisLoss on 02.08.2020.
-//
-
 #include "ConnectedComponents.h"
+
+#include <iostream>
 
 namespace {
     void dfsVisit(const Graph& graph, std::vector<Graphs::Byte>& visited, unsigned int u) {
         visited[u] = 1;
-        for (auto& v : graph.ajcList[u]) {
-            if (!visited[u]) {
+        for (const auto& v : graph.ajcList[u]) {
+            if (!visited[v]) {
                 dfsVisit(graph, visited, v);
             }
         }
