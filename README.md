@@ -26,7 +26,7 @@ My implementation of popular algorithms
   * [Merge sort](https://github.com/IsThisLoss/Algorithms/blob/master/Sorts/MergeSort.h)
   * [Quick sort](https://github.com/IsThisLoss/Algorithms/blob/master/Sorts/QuickSort.h)
 
-There are also [benchmarks](https://github.com/IsThisLoss/Algorithms/tree/master/Sorts/benchmarks) for implemented algorithms
+[Benchmarks for implemented algorithms](https://github.com/IsThisLoss/Algorithms/tree/master/Sorts/benchmarks)
 
 ## 6.String
   * [Implementation of string class with SSO](https://github.com/IsThisLoss/Algorithms/blob/master/String/String.h)
