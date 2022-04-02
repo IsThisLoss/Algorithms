@@ -4,7 +4,7 @@ My implementation of popular algorithms
 ![CI](https://github.com/IsThisLoss/Algorithms/actions/workflows/ci.yml/badge.svg)
 
 ## 1. Base64
-  * [Encoder and Decoder](https://github.com/IsThisLoss/Algorithms/tree/master/Base64)
+  * [Encoder and Decoder](https://github.com/IsThisLoss/Algorithms/tree/master/Base64/Base64.h)
 
 ## 2. Binary Search
   * [Binary search](https://github.com/IsThisLoss/Algorithms/blob/master/BinarySearch/BinarySearch.h)
