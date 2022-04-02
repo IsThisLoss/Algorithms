@@ -4,8 +4,8 @@ add_library(
         KmpSearch.cpp
         StringSplit.h
         StringSplit.cpp
-        LevenshtainDistance.h
-        LevenshtainDistance.cpp
+        LevenshteinDistance.h
+        LevenshteinDistance.cpp
         BKTree.h
         BKTree.cpp
 )

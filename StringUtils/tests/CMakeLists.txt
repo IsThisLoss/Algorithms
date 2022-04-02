@@ -4,7 +4,7 @@ add_executable(
   test_string_utils
   KmpSearch.cpp
   StringSplit.cpp 
-  LevenshtainDistance.cpp
+  LevenshteinDistance.cpp
   BKTree.cpp
 )
 

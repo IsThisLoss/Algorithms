@@ -1,4 +1,4 @@
-#include "LevenshtainDistance.h"
+#include "LevenshteinDistance.h"
 
 #include <algorithm>
 #include <numeric>
@@ -21,7 +21,7 @@ namespace StringUtils {
  *  h  | 3  | 3 | 3 | 2 |
  */
 
-std::string::size_type levenshtainDistance(const std::string& lhs, const std::string& rhs) {
+std::string::size_type LevenshteinDistance(const std::string& lhs, const std::string& rhs) {
   using Size = std::string::size_type;
 
   if (lhs.empty() && rhs.empty()) {

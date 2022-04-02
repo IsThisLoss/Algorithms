@@ -9,6 +9,6 @@ namespace StringUtils {
  * @rhs - second string
  * @return Levenshtain distance between lhs and rhs
  */
-std::string::size_type levenshtainDistance(const std::string& lhs, const std::string& rhs);
+std::string::size_type LevenshteinDistance(const std::string& lhs, const std::string& rhs);
 
 }

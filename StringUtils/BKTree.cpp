@@ -1,6 +1,6 @@
 #include "BKTree.h"
 
-#include "LevenshtainDistance.h"
+#include "LevenshteinDistance.h"
 
 namespace StringUtils {
 
@@ -15,7 +15,7 @@ void BKTree::insert(NodePtr& root, const std::string& str) {
     root->word = str;
     return;
   }
-  const int dist = levenshtainDistance(root->word, str);
+  const int dist = LevenshteinDistance(root->word, str);
   if (dist == 0) {
     // drop dublicates
     return;
@@ -35,7 +35,7 @@ void BKTree::find(const NodePtr& root, const std::string& str, const int thresho
     return;
   }
 
-  const int dist = levenshtainDistance(root->word, str);
+  const int dist = LevenshteinDistance(root->word, str);
   if (dist <= threshold) {
     result.push_back(root->word);
   }
