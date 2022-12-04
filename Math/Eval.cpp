@@ -106,8 +106,11 @@ int evalPostfix(const std::string& data) {
     if (isOperator(data[i])) {
       int rhs = tokens.top();
       tokens.pop();
-      int lhs = tokens.top();
-      tokens.pop();
+      int lhs = 0;
+      if (!tokens.empty()) {
+        lhs = tokens.top();
+        tokens.pop();
+      }
       tokens.push(apply(lhs, rhs, data[i]));
       continue;
     }
