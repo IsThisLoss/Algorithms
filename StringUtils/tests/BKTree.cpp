@@ -50,7 +50,7 @@ TEST(BKTree, Complex) {
   bkTree.insert("cart");
   auto result = bkTree.find("boo", 2);
   ASSERT_EQ(result.size(), 5);
-  sort(result.begin(), result.end());
+  std::sort(result.begin(), result.end());
   const std::vector<std::string> expected{"boo", "book", "books", "boon", "cook"};
   ASSERT_EQ(result, expected);
 }
